@@ -1,0 +1,26 @@
+# Environment variables and secrets
+.env
+
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# FastAPI / Python generated files
+.pytest_cache/
+
+# Node / React dependencies
+node_modules/
+
+# Frontend build output
+dist/
+build/
+
+# Uploaded/generated documents
+data/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
