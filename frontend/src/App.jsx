@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import "./App.css";
 
+const API_BASE_URL = "https://ai-document-analyst.onrender.com";
+
 const actions = [
   {
     id: "summarize",
@@ -136,7 +138,7 @@ const [error, setError] = useState("");
     formData.append("file", selectedFile);
 
     const response = await fetch(
-      "http://127.0.0.1:8000/summarize",
+      `${API_BASE_URL}/summarize`,
       {
         method: "POST",
         body: formData,
@@ -175,7 +177,7 @@ const runAsk = async () => {
     formData.append("question", question);
 
     const response = await fetch(
-      "http://127.0.0.1:8000/ask",
+      `${API_BASE_URL}/ask`,
       {
         method: "POST",
         body: formData,
@@ -213,7 +215,7 @@ const runAnalyze = async () => {
     formData.append("file", selectedFile);
 
     const response = await fetch(
-      "http://127.0.0.1:8000/analyze",
+      `${API_BASE_URL}/analyze`,
       {
         method: "POST",
         body: formData,
@@ -251,7 +253,7 @@ const runClassify = async () => {
     formData.append("file", selectedFile);
 
     const response = await fetch(
-      "http://127.0.0.1:8000/classify",
+      `${API_BASE_URL}/classify`,
       {
         method: "POST",
         body: formData,
@@ -289,7 +291,7 @@ const runExtractInvoice = async () => {
     formData.append("file", selectedFile);
 
     const response = await fetch(
-      "http://127.0.0.1:8000/extract-invoice",
+      `${API_BASE_URL}/extract-invoice`,
       {
         method: "POST",
         body: formData,
