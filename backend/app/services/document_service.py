@@ -1,9 +1,9 @@
 from pathlib import Path
 
 import fitz
-import pytesseract
 from PIL import Image
 from docx import Document
+from rapidocr import RapidOCR
 
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg"}
@@ -16,11 +16,7 @@ SUPPORTED_EXTENSIONS = {
     ".jpeg",
 }
 
-# Temporary local configuration.
-# Later we will move this into environment variables/configuration.
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-)
+ocr = RapidOCR()
 
 
 def extract_text_from_pdf(file_path: str) -> str:
@@ -56,7 +52,12 @@ def extract_text_from_pdf(file_path: str) -> str:
             pix.samples
         )
 
-        page_text = pytesseract.image_to_string(image)
+        result = ocr(image)
+
+        page_text = ""
+
+        if result.txts is not None:
+            page_text = "\n".join(result.txts)
 
         ocr_text += page_text + "\n"
 
@@ -67,14 +68,15 @@ def extract_text_from_pdf(file_path: str) -> str:
 
 def extract_text_from_image(file_path: str) -> str:
     """
-    Extract text from an image using Tesseract OCR.
+    Extract text from an image using RapidOCR.
     """
 
-    image = Image.open(file_path)
+    result = ocr(file_path)
 
-    extracted_text = pytesseract.image_to_string(image)
+    if result.txts is None:
+        return ""
 
-    return extracted_text
+    return "\n".join(result.txts)
 
 
 def extract_text_from_docx(file_path: str) -> str:

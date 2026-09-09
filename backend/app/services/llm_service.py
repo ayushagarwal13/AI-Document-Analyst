@@ -181,6 +181,19 @@ Choose the most appropriate category from:
 - Letter
 - Other
 
+Important classification rules:
+
+- Invoice: A document that lists goods or services, prices, quantities,
+  invoice/reference number, invoice date, subtotal, tax, discount, or
+  total amount due. An invoice may also contain payment information such
+  as "Received" or "Paid".
+- Receipt: A document whose primary purpose is to confirm that a payment
+  or purchase has already been completed. Do not classify an itemized
+  invoice as a receipt simply because it contains words such as
+  "Received" or "Paid".
+- If the document contains clear invoice identifiers and itemized
+  charges, prefer Invoice over Receipt.
+
 Return ONLY the category name.
 Do not provide an explanation.
 Do not use Markdown.

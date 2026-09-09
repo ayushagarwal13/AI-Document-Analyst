@@ -4,7 +4,8 @@ python-multipart
 python-dotenv
 google-genai
 PyMuPDF
-pytesseract
 Pillow
 python-docx
 pydantic
+rapidocr
+onnxruntime
