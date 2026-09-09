@@ -173,6 +173,7 @@ Choose the most appropriate category from:
 - Invoice
 - Receipt
 - Resume
+- Certificate
 - Bank Statement
 - Purchase Order
 - Contract
