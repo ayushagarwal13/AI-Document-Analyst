@@ -22,6 +22,7 @@ ocr = RapidOCR(
         "Global.max_side_len": 1600,
         "Det.model_type": ModelType.TINY,
         "Rec.model_type": ModelType.TINY,
+        "EngineConfig.onnxruntime.enable_cpu_mem_arena": False,
     }
 )
 
