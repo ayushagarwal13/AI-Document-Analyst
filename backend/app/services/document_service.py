@@ -3,7 +3,7 @@ from pathlib import Path
 import fitz
 from PIL import Image
 from docx import Document
-from rapidocr import RapidOCR
+from rapidocr import ModelType, RapidOCR
 
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg"}
@@ -16,7 +16,14 @@ SUPPORTED_EXTENSIONS = {
     ".jpeg",
 }
 
-ocr = RapidOCR()
+ocr = RapidOCR(
+    params={
+        "Global.use_cls": False,
+        "Global.max_side_len": 1600,
+        "Det.model_type": ModelType.TINY,
+        "Rec.model_type": ModelType.TINY,
+    }
+)
 
 
 def extract_text_from_pdf(file_path: str) -> str:
