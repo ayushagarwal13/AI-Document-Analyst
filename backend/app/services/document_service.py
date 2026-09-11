@@ -52,7 +52,12 @@ def extract_text_from_pdf(file_path: str) -> str:
             pix.samples
         )
 
-        result = ocr(image)
+        result = ocr(
+            image,
+            use_det=True,
+            use_cls=False,
+            use_rec=True
+        )
 
         page_text = ""
 
@@ -71,7 +76,12 @@ def extract_text_from_image(file_path: str) -> str:
     Extract text from an image using RapidOCR.
     """
 
-    result = ocr(file_path)
+    result = ocr(
+        file_path,
+        use_det=True,
+        use_cls=False,
+        use_rec=True
+    )
 
     if result.txts is None:
         return ""
