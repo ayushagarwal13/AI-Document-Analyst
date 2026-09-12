@@ -1244,7 +1244,7 @@ const handleRunAction = () => {
       </div>
 
       <h3>
-        AI Summary
+        AI Response
       </h3>
 
       <div className="result-content">
